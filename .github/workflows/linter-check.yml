@@ -5,7 +5,7 @@ name: linter-check
 # Controls when the workflow will run
 on:
 
-  - push:
+  push:
 jobs:
   # This workflow contains a single job called "build"
   build:
