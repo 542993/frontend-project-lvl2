@@ -6,9 +6,10 @@ const parsFunc = (file, filePath) => {
   let result;
   if (format === '.json') {
     result = JSON.parse(file);
-  } else if (result === '.yml' || result === '.yaml') {
+  } else if (format === '.yml' || format === '.yaml') {
     result = yaml.load(file);
   }
   return result;
 };
+
 export default parsFunc;
