@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { compareObject } from './funcs.js';
+import { genDiff } from '../src/funcs.js';
 
 const program = new Command();
 program
@@ -10,10 +10,8 @@ program
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format [type]', 'output format')
   .action((filepath1, filepath2) => {
-    const newArr = compareObject(filepath1, filepath2);
-    console.log('{');
-    newArr.map((item) => console.log(item));
-    console.log('}');
+    const diff = genDiff(filepath1, filepath2);
+    console.log(diff);
   });
 
 program.parse();
