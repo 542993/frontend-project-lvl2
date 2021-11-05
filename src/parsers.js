@@ -1,15 +1,13 @@
-import * as path from 'path';
-import * as yaml from 'js-yaml';
+import yaml from 'js-yaml';
 
-const parsFunc = (file, filePath) => {
-  const format = path.extname(filePath);
-  let result;
-  if (format === '.json') {
-    result = JSON.parse(file);
-  } else if (format === '.yml' || format === '.yaml') {
-    result = yaml.load(file);
+export default (data, dataFormat) => {
+  switch (dataFormat) {
+    case '.yaml':
+    case '.yml':
+      return yaml.load(data);
+    case '.json':
+      return JSON.parse(data);
+    default:
+      throw new Error(`Unknown data format: '${dataFormat}'!`);
   }
-  return result;
 };
-
-export default parsFunc;
