@@ -1,12 +1,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import parse from './parsers.js';
-import makeStylish from './stylish.js';
+import formatDiff from './formatters/index.js';
 import formDiff from './formDiff.js';
 
-const getDataFormat = (filePath) => path.extname(filePath);
+const getDataFormat = (filePath) => path.extname(filePath).slice(1);
 const getContentOfFile = (filePath) => {
-  const fullPath = path.resolve(process.cwd(), '_fixtures_', filePath);
+  const fullPath = path.resolve(process.cwd(), '__fixtures__', filePath);
   const data = fs.readFileSync(fullPath, 'utf-8');
   return data;
 };
@@ -21,10 +21,9 @@ const getDiff = (filePath1, filePath2) => {
   const diff = formDiff(data1, data2);
   return diff;
 };
-const genDiff = (filePath1, filePath2, format = 'stylish') => {
+const genDiff = (filePath1, filePath2, formatName = 'stylish') => {
   const diff = getDiff(filePath1, filePath2);
-  if (format === 'stylish') return makeStylish(diff);
-  return 2;
+  return formatDiff(diff, formatName);
 };
 
 export default genDiff;
