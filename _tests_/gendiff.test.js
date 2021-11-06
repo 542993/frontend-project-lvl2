@@ -11,10 +11,17 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '_fixtures_', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('Gendiff for json files', () => {
-  expect(genDiff('file1.json', 'file2.json')).toBe(readFile('result'));
+test('test json-stylish', () => {
+  expect(genDiff('file1.json', 'file2.json')).toBe(readFile('result-stylish'));
 });
 
-test('Gendiff for yml files', () => {
-  expect(genDiff('filepath1.yml', 'filepath2.yml')).toBe(readFile('result'));
+test('test yml-stylish', () => {
+  expect(genDiff('filepath1.yml', 'filepath2.yml')).toBe(readFile('result-stylish'));
+});
+test('test json-plain', () => {
+  expect(genDiff('file1.json', 'file2.json')).toBe(readFile('result-plain'));
+});
+
+test('test yml-plain', () => {
+  expect(genDiff('filepath1.yml', 'filepath2.yml')).toBe(readFile('result-plain'));
 });
