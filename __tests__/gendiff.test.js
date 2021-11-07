@@ -24,3 +24,11 @@ test('test json-plain', () => {
 test('test yml-plain', () => {
   expect(genDiff('filepath1.yml', 'filepath2.yml', 'plain')).toBe(readFile('result-plain'));
 });
+
+test('test json-json', () => {
+  expect(genDiff('file1.json', 'file2.json', 'json')).toBe(readFile('result-json'));
+});
+
+test('test yml-json', () => {
+  expect(genDiff('filepath1.yml', 'filepath2.yml', 'json')).toBe(readFile('result-plain'));
+});
