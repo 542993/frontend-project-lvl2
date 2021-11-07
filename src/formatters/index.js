@@ -7,6 +7,8 @@ const formatDiff = (diff, formatName) => {
       return makePlain(diff);
     case 'stylish':
       return makeStylish(diff);
+    case 'json':
+      return makeJson(diff);
     default:
       throw new Error(`Unsupported format: '${formatName}'!`);
   }

@@ -15,7 +15,7 @@ const stringify = (value, depth) => {
 };
 
 const makeStylish = (diff) => {
-  const iter = (currentValue, depth) => { 
+  const iter = (currentValue, depth) => {
     const makeString = (object) => {
       switch (object.status) {
         case 'nested':
