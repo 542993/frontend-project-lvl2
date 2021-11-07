@@ -1,5 +1,6 @@
 import makeStylish from './stylish.js';
 import makePlain from './plain.js';
+import makeJson from './json.js';
 
 const formatDiff = (diff, formatName) => {
   switch (formatName) {
