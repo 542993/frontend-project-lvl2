@@ -30,5 +30,5 @@ test('test json-json', () => {
 });
 
 test('test yml-json', () => {
-  expect(genDiff('filepath1.yml', 'filepath2.yml', 'json')).toBe(readFile('result-plain'));
+  expect(genDiff('filepath1.yml', 'filepath2.yml', 'json')).toBe(readFile('result-json'));
 });
